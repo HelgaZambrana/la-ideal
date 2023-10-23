@@ -38,18 +38,35 @@
     <main>
         <section>
             <h2>Contáctenos</h2>
-            <form action="show_data.html" method="POST" target="_blank">
+            <!-- <form action="show_data.html" method="POST" target="_blank"> Anterior-->
+            <form id="formularioContacto">   
                 <fieldset>
                     <legend>Envíenos sus consultas o sugerencias</legend>
+                    
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre" required><br>
+                   
                     <input type="email" id="email" name="email" placeholder="E-mail" required><br>
+                
                     <textarea id="mensaje" maxlength="500" name="mensaje" rows="10" placeholder="Mensaje" required></textarea><br>
                     <input type="reset" value="Borrar">
-                    <input type="submit" value="Enviar">
+                    <!-- <input type="submit" value="Enviar" onclick="llenarFormulario()"> Anterior-->
+                    <button type="button" onclick="llenarFormulario()">Enviar</button>
                 </fieldset>
-            </form>
+            </form>    
+            <!-- </form> -->
         </section>
     </main>
+  
+    <script>
+        function llenarFormulario() {
+            var nombre = document.getElementById("nombre").value;
+            var email = document.getElementById("email").value;
+            var mensaje = document.getElementById("mensaje").value;
+
+            var datos = "Nombre: " + nombre + "<br>Email: " + email + "<br>Mensaje: " + mensaje;
+            document.getElementById("formularioContacto").innerHTML = datos;
+        }
+    </script>
 
     <footer>
         <a href="https://www.instagram.com/confiterialaideal/" target="_blank"><i class="fa-brands fa-instagram" style="color: #ffffff;" aria-hidden="true"></i></a>
